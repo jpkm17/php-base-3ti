@@ -19,12 +19,12 @@ if(isset($_POST['sub'])){
 }
 ?>
 <html>
-      
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
+        <h1>Login</h1>
         <form method="POST" enctype="multipart/form-data">
             <table>
                 
