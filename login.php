@@ -2,6 +2,7 @@
 
 include'connect.php';
 
+// is
 if(isset($_POST['sub'])){
     $u=$_POST['user'];
     $p=$_POST['pass'];
@@ -44,7 +45,12 @@ if(isset($_POST['sub'])){
                     <td>
                         <input type="submit" name="sub" value="submit">
                     </td>
+
+                    <td>
+                        <a href="reg.php">Cadastrar</a>
+                    </td>
                 </tr>
+
             </table>
     </body>
 </html>
