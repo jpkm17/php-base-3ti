@@ -1,7 +1,9 @@
 <?php
 
+
 include'connect.php';
 
+$Error_message = '';
 if(isset($_POST['sub'])){
     $u=$_POST['user'];
     $p=$_POST['pass'];
@@ -13,7 +15,7 @@ if(isset($_POST['sub'])){
       header ('location:home.php');
    }
    else{
-       echo 'username or password does not exist';
+       $Error_message = 'username or password does not exist';
    }
   
 }
@@ -22,29 +24,33 @@ if(isset($_POST['sub'])){
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" href="css/commun.css">
     </head>
     <body>
-        <h1>Login</h1>
-        <form method="POST" enctype="multipart/form-data">
-            <table>
-                
-                <tr>
-                    <td>
-                        Username
-                        <input type="text" name="user">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        password
-                        <input type="password" name="pass">
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="submit" name="sub" value="submit">
-                    </td>
-                </tr>
-            </table>
+        <div class="container-login">
+            
+            <h1>Login</h1>
+            <form method="POST" enctype="multipart/form-data">
+
+                <div class="dados-container">
+                    <label>Username</label> 
+                    <br>
+                    <input type="text" name="user" class="username">
+                    <br>
+                    <br>
+                    <label>Password</label> 
+                    <br>
+                    <input type="password" name="pass" class="password">
+                            
+                    <br>
+                    <br>
+                    <input type="submit" name="sub" value="submit" class="submit">
+
+
+                    <p><?php echo $Error_message ?></p>
+                </div>            
+            </form>
+
+        </div>
     </body>
 </html>
