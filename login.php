@@ -15,7 +15,7 @@ if(isset($_POST['sub'])){
       header ('location:home.php');
    }
    else{
-       $Error_message = 'username or password does not exist';
+       $Error_message = 'Username or password does not exist';
    }
   
 }
