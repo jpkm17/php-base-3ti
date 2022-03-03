@@ -1,7 +1,9 @@
 <?php
 session_start();
 
+//excluir somente uma session
 unset($_SESSION['name']);
 
-echo "Session name delete.";
+//deleta todas as variaveis
+session_unset();
 ?>
