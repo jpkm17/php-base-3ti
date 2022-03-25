@@ -24,6 +24,11 @@ if(isset($_POST['sub'])){
                         <input type="text" name="nameCity">
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="submit" name="sub">
+                    </td>
+                </tr>
             </table>
     </body>
 </html>

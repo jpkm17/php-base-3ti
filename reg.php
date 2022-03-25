@@ -52,12 +52,9 @@ if(isset($_POST['sub'])){
 
                                 while($item = mysqli_fetch_assoc($sqlCity))
                                 {
-                                    $nomeItem = utf_encode($item['nameCity']);
+                                    $nomeItem = $item['nameCity'];
                                     $idCity = $item['idCity'];
-
-                                    echo "
-                                        <option value=$nomeItem>$nomeItem</option>
-                                    ";
+                                    echo"  <option value=$nomeItem> $nomeItem </option>";
                                 }
                             ?>
                     </td>
