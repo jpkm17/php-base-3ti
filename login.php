@@ -46,7 +46,6 @@ if(isset($_POST['sub'])){
                     <br>
                     <input type="submit" name="sub" value="submit" class="submit">
 
-
                     <p><?php echo $Error_message ?></p>
                 </div>            
             </form>
