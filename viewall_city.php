@@ -13,7 +13,7 @@ include 'connect.php';
     </tr>
 
 <?php
-$sq="select * from reg";
+$sq="select * from city";
 $qu=mysqli_query($con,$sq);
 while($f=  mysqli_fetch_assoc($qu)){
     ?>
