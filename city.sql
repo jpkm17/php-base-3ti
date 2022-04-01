@@ -4,4 +4,3 @@ create table city(
 );
 
 INSERT INTO `city` (`idCity`, `nameCity`) VALUES (NULL, 'Sumaré'), (NULL, 'Hortolândia ');
-
