@@ -1,13 +1,14 @@
 <?php
-include '../connect.php';
-// include '../checklogin.php';
-$id = $_GET['id'];
-$nameCity = $_GET['cityName'];
+include 'connect.php';
+include 'checklogin.php';
+
+$id = $_GET['idCity'];
+$nameCity = $_GET['nameCity'];
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +16,7 @@ $nameCity = $_GET['cityName'];
     <title>Document</title>
 </head>
 <body>
-    <center><h1>Editar Cidade</h1></center>
+    <h1>Editar Cidade</h1>
     <form method="POST">
         <label> Selecione a cidade: </label><br>
         <select name="city">
