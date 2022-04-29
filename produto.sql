@@ -4,7 +4,7 @@ create table produto(
     preçoProduto float(30)not null
 );
 
-create table produto(
+create table categoria(
     idCategoria int primary key auto_increment,
-    categoria varchar(50)
+    categoria varchar(50) not null
 );
