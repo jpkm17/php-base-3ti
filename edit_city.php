@@ -2,8 +2,8 @@
 include 'connect.php';
 include 'checklogin.php';
 
-$id = $_GET['idCity'];
-$nameCity = $_GET['nameCity'];
+$id = $_GET['id'];
+$nameCity = $_GET['cityName'];
 
 ?>
 

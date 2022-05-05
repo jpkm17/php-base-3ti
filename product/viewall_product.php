@@ -17,10 +17,16 @@ include '../connect.php';
         <th>
         Categoria
         </th>
+        <th>
+        Remover
+        </th>
+        <th>
+        Editar
+        </th>
     </tr>
 
 <?php
-$sq="select * from produto";
+$sq="select * from produto as p inner join categoria as c on c.idCategoria = p.fk_idCategoria";
 $qu=mysqli_query($con,$sq);
 while($f=  mysqli_fetch_assoc($qu)){
     ?>
@@ -32,14 +38,17 @@ while($f=  mysqli_fetch_assoc($qu)){
             <?php echo $f['nomeProduto']?>
         </td>
         <td>
+            <?php echo $f['preçoProduto']?>
+        </td>
+        
+        <td>
+            <?php echo $f['nomeCategoria'] ?>
+        </td>
+        <td>
             <a href="delete_product.php?id=<?php echo $f['idProduto'];?>">Remover</a>
         </td>
-
         <td>
-            <?php echo $f['fk_idCategoria'] ?>
-        </td>
-        <td>
-            <a href="edit_product.php?id=<?php echo $f['idProduto']?>&nomeProduto=<?php echo $f['nomeProduto'] ?>">Editar</a>
+            <a href="edit_product.php?id=<?php echo $f['idProduto']?>&nomeProduto=<?php echo $f['nomeProduto']?>&preço=<?php echo $f ['preçoProduto']?>&categoria= <?php echo $f ['nomeCategoria'] ?>"> Editar</a>
         </td>
     </tr>
     <?php
