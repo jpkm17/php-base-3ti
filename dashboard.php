@@ -33,7 +33,18 @@ include 'connect.php';
         <!-- small box -->
         <div class="small-box bg-info">
             <div class="inner">
-                <h3>150</h3>
+                <h3>  
+                    <?php
+
+                    $sqlCity = mysqli_query($con, "select id from reg");
+
+                    while ($item = mysqli_fetch_assoc($sqlCity)) {
+                        $idItem = utf8_encode($item['id']);
+                        
+                        echo $idItem;
+                    }
+                    ?>
+                </h3>
 
                 <p>New Orders</p>
             </div>
@@ -50,9 +61,14 @@ include 'connect.php';
             <div class="inner">
                 <h3>
                     <?php
-                    echo "";
 
-                    // $sqlCity = mysqli_query($con, "");
+                    $sqlCity = mysqli_query($con, "select name from reg");
+
+                    while ($item = mysqli_fetch_assoc($sqlCity)) {
+                        $nomeItem = utf8_encode($item['name']);
+                        
+                        echo $nomeItem ;
+                    }
                     ?>
                 </h3>
 
