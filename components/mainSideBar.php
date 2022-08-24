@@ -85,7 +85,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="edit" class="nav-link">
+                <a href="edit.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit user</p>
                 </a>
