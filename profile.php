@@ -1,6 +1,6 @@
 <?php
-include'connect.php';
-include'checkLogin.php';
+include 'connect.php';
+include 'checkLogin.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -14,13 +14,17 @@ if(isset($_POST['sub'])){
     else{
         $img=$_POST['img1'];
     }
-    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
-    mysqli_query($con, $i);
+    $m="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $m);
     header('location:home.php');
+
+    $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
+    mysqli_query($con, $i);
 }
     $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
+
     ?> 
   
   
@@ -229,10 +233,12 @@ if(isset($_POST['sub'])){
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Users</a></li>
                   <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Add user</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
+                  
                   <div class="active tab-pane" id="activity">
                   <table border='1'>
                             <tr>
@@ -256,8 +262,10 @@ if(isset($_POST['sub'])){
                     </table>
                     
                   </div>
-                  <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
+
+
+                  <div class="tab-pane" id="settings"> 
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
@@ -267,7 +275,7 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Username</label>
                         <div class="col-sm-10">
-                        <input type="text" name="text" class="form-control" value="<?php echo $f['username']?>">
+                        <input type="text" name="user" class="form-control" value="<?php echo $f['username']?>">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -305,11 +313,10 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
-                        <img src="<?php echo $f['image']?>" width="100px" height="100px">
-                        <br>
-                        <input type="file" name="f1">
-                        <br>
-                        <input type="hidden" name="img1" value="<?php echo $f['image']?>">
+                          <br>
+                          <input type="file" name="f1">
+                          <br>
+                          <input type="hidden" name="img1" value="<?php echo $f['image']?>">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -320,9 +327,46 @@ if(isset($_POST['sub'])){
                       </div>
                     </form>
                   </div>
-                  <!-- /.tab-pane -->
+                 
+
+                  <!-- TIMELINE abaixo -->
+
+                  <div class="tab-pane" id="timeline">
+                  <form class="form-horizontal" method="POST" enctype="multipart/form-data">
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                        <input type="text" name="text" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                        <input type="text" name="user" class="form-control">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" name="pass">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
+                        <input type="radio"name="gen" id="gen" value="male">male
+                        <input type="radio" name="gen" id="gen" value="female">female
+                      
+                        <div class="form-group row">
+                          <div class="offset-sm-2 col-sm-10">
+                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub">
+                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+
                 </div>
-                <!-- /.tab-content -->
               </div><!-- /.card-body -->
             </div>
             <!-- /.card -->

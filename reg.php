@@ -1,5 +1,5 @@
 <?php
-include'connect.php';
+include 'connect.php';
 // include'checkLogin.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
