@@ -11,25 +11,18 @@ if(isset($_POST['sub'])){
     move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
     $img="image/".$_FILES['f1']['name'];
     }
-    else{
-        $img=$_POST['img1'];
-    }
-    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
     mysqli_query($con, $i);
-    header('location:home.php');
 }
-    $s="select*from reg where id='$_SESSION[id]'";
-    $qu= mysqli_query($con, $s);
-    $f=mysqli_fetch_assoc($qu);
-    ?> 
-  
-  
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | User Profile</title>
+  <title>AdminLTE 3 | General Form Elements</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -48,7 +41,7 @@ if(isset($_POST['sub'])){
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
+        <a href="./AdminLTE-3.2.0/index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -179,7 +172,7 @@ if(isset($_POST['sub'])){
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <?php include './components/mainSideBar.php' ?>
+ <?php include './components/mainSideBar.php' ?>
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -188,12 +181,12 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
+            <h1>General Form</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User Profile</li>
+              <li class="breadcrumb-item active">General Form</li>
             </ol>
           </div>
         </div>
@@ -204,130 +197,68 @@ if(isset($_POST['sub'])){
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
-
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                <img src="<?php echo $f['image']?>" width="100px" height="100px">
-                </div>
-
-                <h3 class="profile-username text-center"><?php echo $f['name']?></h3>
-
-                <p class="text-muted text-center">Admin</p>
+          <!-- left column -->
+          <div class="col-md-6">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Adicionar Usuario</h3>
               </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-          </div>
-          <!-- /.col -->
-          <div class="col-md-9">
-            <div class="card">
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Users</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="active tab-pane" id="activity">
-                  <table border='1'>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Username
-                                </th>
-                            </tr>
-
-                     
-                            <tr>
-                                <td>
-                                    <?php echo $f['name']?>
-                                </td>
-                                <td>
-                                    <?php echo $f['username']?>
-                                </td>
-                            </tr>
-                    </table>
-                    
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
                   </div>
-                  <div class="tab-pane" id="settings">
-                    <form class="form-horizontal">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" name="text" class="form-control" value="<?php echo $f['name']?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
-                        <input type="text" name="text" class="form-control" value="<?php echo $f['username']?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                          <input type="password" name="pass" value="<?php echo $f['password']?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-10">
-                        <?php if($f['gender']=='male'){
-                        ?>
-
-                          <input type="radio"name="gen" id="gen" value="male" checked>
-                        <?php
-                        } else {
-                        ?>
-
-                        <input type="radio"name="gen" id="gen" value="male">
-                        <?php } 
-                        ?>male
-                        <?php if($f['gender']=='female'){
-                        ?>
-                          <input type="radio"name="gen" id="gen" value="female" checked>
-                        <?php
-                        } else {
-                        ?>
-
-                        <input type="radio"name="gen" id="gen" value="female">
-                        <?php } ?>
-                        female
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
-                        <div class="col-sm-10">
-                        <img src="<?php echo $f['image']?>" width="100px" height="100px">
-                        <br>
-                        <input type="file" name="f1">
-                        <br>
-                        <input type="hidden" name="img1" value="<?php echo $f['image']?>">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <input type="submit" class="btn btn-danger" value="Concluir" name="sub">
-                          <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                        </div>
-                      </div>
-                    </form>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Username</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                   </div>
-                  <!-- /.tab-pane -->
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                  <label for="exampleInputPassword1">City</label>
+                  <select name="city">
+                  <option value="">-Select-</option class="form-control">
+                  <?php 
+                   $sqlCity = mysqli_query($con, "select * from city");
+
+                  while($item = mysqli_fetch_assoc($sqlCity))
+                    {
+                      $nomeItem = $item['nameCity'];
+                      $idCity = $item['idCity'];
+                      echo"  <option value=$nomeItem> $nomeItem </option>";
+                    }
+                    ?>
+                  <div class="form-group">
+                    <label for="exampleInputFile">File input</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div>
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
-            <!-- /.card -->
+
           </div>
-          <!-- /.col -->
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -354,9 +285,17 @@ if(isset($_POST['sub'])){
 <script src="./AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="./AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- bs-custom-file-input -->
+<script src="./AdminLTE-3.2.0/plugins/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="./AdminLTE-3.2.0/addist/js/demo.js"></script>
+<script src="./AdminLTE-3.2.0/dist/js/demo.js"></script>
+<!-- Page specific script -->
+<script>
+$(function () {
+  bsCustomFileInput.init();
+});
+</script>
 </body>
 </html>

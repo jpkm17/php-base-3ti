@@ -1,7 +1,33 @@
+<?php
+include'connect.php';
+include'checkLogin.php';
+if(isset($_POST['sub'])){
+    $t=$_POST['text'];
+    $u=$_POST['user'];
+    $p=$_POST['pass'];
+    $c=$_POST['city'];
+    $g=$_POST['gen'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:home.php');
+}
+    $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+    ?> 
+  
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="./AdminLTE-3.2.0/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
 
@@ -85,7 +111,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="edit.php" class="nav-link">
+                <a href="profile.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Edit user</p>
                 </a>
@@ -96,7 +122,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Charts
+                Produto
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -104,25 +130,7 @@
               <li class="nav-item">
                 <a href="pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>ChartJS</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Flot</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
+                  <p>Produto</p>
                 </a>
               </li>
             </ul>
