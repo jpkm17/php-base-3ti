@@ -1,27 +1,27 @@
 <?php
 include'connect.php';
-// include'checkLogin.php';
-// if(isset($_POST['sub'])){
-//     $t=$_POST['text'];
-//     $u=$_POST['user'];
-//     $p=$_POST['pass'];
-//     $c=$_POST['city'];
-//     $g=$_POST['gen'];
-//     if($_FILES['f1']['name']){
-//     move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
-//     $img="image/".$_FILES['f1']['name'];
-//     }
-//     else{
-//         $img=$_POST['img1'];
-//     }
-//     $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
-//     mysqli_query($con, $i);
-//     header('location:home.php');
-// }
-//     $s="select*from reg where id='$_SESSION[id]'";
-//     $qu= mysqli_query($con, $s);
-//     $f=mysqli_fetch_assoc($qu);
-//     ?> 
+include'checkLogin.php';
+if(isset($_POST['sub'])){
+    $t=$_POST['text'];
+    $u=$_POST['user'];
+    $p=$_POST['pass'];
+    $c=$_POST['city'];
+    $g=$_POST['gen'];
+    if($_FILES['f1']['name']){
+    move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
+    $img="image/".$_FILES['f1']['name'];
+    }
+    else{
+        $img=$_POST['img1'];
+    }
+    $i="update reg set name='$t',username='$u',password='$p',city='$c',gender='$g',image='$img' where id='$_SESSION[id]'";
+    mysqli_query($con, $i);
+    header('location:home.php');
+}
+    $s="select*from reg where id='$_SESSION[id]'";
+    $qu= mysqli_query($con, $s);
+    $f=mysqli_fetch_assoc($qu);
+?> 
   
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -128,7 +128,7 @@ include'connect.php';
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="./projects.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produto</p>
                 </a>
