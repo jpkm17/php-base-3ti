@@ -1,6 +1,4 @@
 <?php
-include'connect.php';
-include'checkLogin.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -94,22 +92,9 @@ if(isset($_POST['sub'])){
               <p>
                 Users
                 <i class="fas fa-angle-left right"></i>
-                <span class="badge badge-info right">3</span>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="viewall.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>View users</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="reg.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Reg user</p>
-                </a>
-              </li>
               <li class="nav-item">
                 <a href="profile.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -128,9 +113,13 @@ if(isset($_POST['sub'])){
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./projects.php" class="nav-link">
+                <a href="./produto.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produto</p>
+                </a>
+                <a href="./adicionarProduto.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Produto</p>
                 </a>
               </li>
             </ul>

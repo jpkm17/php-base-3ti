@@ -41,7 +41,7 @@ if (isset($_POST['produto'])) {
                         <?php
                         echo '<option value="" disable> --Selecione --</option>';
 
-                        $sqlCity = mysqli_query($con, "select * from categoria");
+                        $sqlCity = mysqli_query($con, "select * from genero");
 
                         while ($item = mysqli_fetch_assoc($sqlCity)) {
                             $nomeItem = utf8_encode($item['nomeCategoria']);
