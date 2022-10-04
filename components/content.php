@@ -4,7 +4,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Welcome <?php echo $f['username'];?></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -26,9 +26,17 @@
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <h3>Welcome</h3>
+                <h3>
+                  <?php
 
-                <p><?php echo $f['username'];?></p>
+                    $query = $con->query("SELECT count(`idProduto`) as `total` FROM produto");
+                    $row = $query->fetch_assoc();
+                    echo $row['total'];
+
+                  ?>
+                </h3>
+
+                <p>Produtos</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -60,16 +68,16 @@
                 
                 <?php
 
-              // $queryone="SELECT COUNT(id) as total FROM reg";
-              // $result = mysqli_query($con,$queryone);
-              // $row = mysqli_fetch_assoc($result, MYSQLI_NUM);
-              // echo $row['total'];
+                  // $queryone="SELECT COUNT(id) as total FROM reg";
+                  // $result = mysqli_query($con,$queryone);
+                  // $row = mysqli_fetch_assoc($result, MYSQLI_NUM);
+                  // echo $row['total'];
 
-              $query = $con->query("SELECT count(`id`) as `total` FROM reg");
-              $row = $query->fetch_assoc();
-              echo $row['total'];
+                  $query = $con->query("SELECT count(`id`) as `total` FROM reg");
+                  $row = $query->fetch_assoc();
+                  echo $row['total'];
 
-                    ?>
+                ?>
       
                 </h3>
 
