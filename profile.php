@@ -180,10 +180,10 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
                         <div class="col-sm-10">
+                          <img src="<?php echo $f['image']?>" width="100px" height="100px">
+                          <input type="hidden" name="img1" value="<?php echo $f['image']?>">
                           <br>
                           <input type="file" name="f1">
-                          <br>
-                          <input type="hidden" name="img1" value="<?php echo $f['image']?>">
                         </div>
                       </div>
                       <div class="form-group row">
