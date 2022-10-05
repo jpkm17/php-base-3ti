@@ -6,7 +6,7 @@ use Dompdf\Dompdf;
 
 include '../connect.php';
 
-$sql = $con->query('SELECT * FROM produto');
+$sql = $con->query('select * from produto as p inner join genero as g on g.idGenero = p.fk_idGenero;');
 $html = '<table border=1>';
  $html .='<thead>';
   $html .= '<tr>';
@@ -24,7 +24,7 @@ while ($linha =  mysqli_fetch_assoc($sql)){
      $html .= '<td>' .$linha['nomeProduto'] .'</td>';
      $html .= '<td>' .$linha['preçoProduto'] .'</td>';
      $html .= '<td>' .$linha['quantidade'] .'</td>';
-     $html .=  '<td>' .$linha['fk_idGenero'] .'</td></tr>';
+     $html .=  '<td>' .$linha['nomeGenero'] .'</td></tr>';
     $html .= '</tbody>';
 }
 
