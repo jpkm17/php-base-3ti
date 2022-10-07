@@ -1,6 +1,6 @@
 <?php
-include'connect.php';
-// include'checkLogin.php';
+include '../connect.php';
+include '../checkLogin.php';
 if(isset($_POST['sub'])){
     $t=$_POST['text'];
     $u=$_POST['user'];
@@ -75,7 +75,7 @@ if(isset($_POST['sub'])){
                 <tr>
                     <td>
                         Image
-                        <img src="<?php echo $f['image']?>" width="100px" height="100px">
+                        <img src="../<?php echo $f['image']?>" width="100px" height="100px">
                         <input type="file" name="f1">
                         <input type="hidden" name="img1" value="<?php echo $f['image']?>">
                     </td>
