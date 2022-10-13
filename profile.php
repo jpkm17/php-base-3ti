@@ -44,6 +44,7 @@ if(isset($_POST['sub'])){
   <style>
     .invisivel{
       opacity:0;
+      cursor:default;
     }
   </style>
 </head>
@@ -68,7 +69,7 @@ if(isset($_POST['sub'])){
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User Profile</li>
+              <li class="breadcrumb-item active"><a href="./relatorio/adm.php">Gerar pdf dos usuarios</a></li>
             </ol>
           </div>
         </div>
