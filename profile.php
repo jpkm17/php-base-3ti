@@ -131,7 +131,7 @@ if(isset($_POST['sub'])){
                             <?php if($f['gender']=='female'){ ?>
                               <input type="radio"name="gen" id="radioPrimary2" value="female" checked>
                             <?php } else {?>
-                              <input type="radio"name="gen" id="radioPrimary" value="female">
+                              <input type="radio"name="gen" id="radioPrimary2" value="female">
                             <?php } ?>
                               <label for="radioPrimary2">
                                 Fenimino

@@ -34,7 +34,7 @@ $html .='</table>';
 $dompdf = new Dompdf;
 
 //converter o html
-$dompdf->loadHtml('<h1>Relatorio de produtos</h1>' .$html);
+$dompdf->loadHtml('<h1>Funcionarios cadastrados</h1>' .$html);
 
 //Definir o tamanho e orientação
 $dompdf-> setPaper('A4', 'portrait');
