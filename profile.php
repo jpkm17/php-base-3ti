@@ -18,14 +18,11 @@ if(isset($_POST['sub'])){
     mysqli_query($con, $m);
     header('location:home.php');
 
-    $i="insert into reg(name,username,password,city,image,gender)value('$t','$u','$p','$c','$img','$g')";
-    mysqli_query($con, $i);
 }
     $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
-
-    ?> 
+?> 
   
   
 <!DOCTYPE html>
@@ -41,6 +38,14 @@ if(isset($_POST['sub'])){
   <link rel="stylesheet" href="./AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="./AdminLTE-3.2.0/dist/css/adminlte.min.css">
+  <!-- iCheck for checkboxes and radio inputs -->
+  <link rel="stylesheet" href="./AdminLTE-3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+  <style>
+    .invisivel{
+      opacity:0;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -76,62 +81,18 @@ if(isset($_POST['sub'])){
         <div class="row">
           <div class="col-md-3">
 
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                <img src="<?php echo $f['image']?>" width="100px" height="100px">
-                </div>
-
-                <h3 class="profile-username text-center"><?php echo $f['name']?></h3>
-
-                <!-- precisa exibir se é admin ou funcionario pelo php -->
-                <p class="text-muted text-center"><?php ?></p>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
           </div>
           <!-- /.col -->
           <div class="col-md-9">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Users</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Settings</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Add user</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Informações</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
                 <div class="tab-content">
-                  
-                  <div class="active tab-pane" id="activity">
-                  <table border='1'>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Username
-                                </th>
-                            </tr>
-
-                     
-                            <tr>
-                                <td>
-                                    <?php echo $f['name']?>
-                                </td>
-                                <td>
-                                    <?php echo $f['username']?>
-                                </td>
-                            </tr>
-                    </table>
-                    
-                  </div>
-
-
-                  <div class="tab-pane" id="settings"> 
+                  <div class="tab-pane active" id="settings"> 
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Name</label>
@@ -148,34 +109,33 @@ if(isset($_POST['sub'])){
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
                         <div class="col-sm-10">
-                          <input type="password" name="pass" value="<?php echo $f['password']?>">
+                          <input type="password" class="form-control" name="pass" value="<?php echo $f['password']?>">
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                        <div class="col-sm-10">
-                        <?php if($f['gender']=='male'){
-                        ?>
+                          <div class="icheck-primary d-inline">
+                            <?php if($f['gender']=='male') /*1*/{  ?>
+                              <input type="radio"name="gen" id="radioPrimary1" value="male" checked>
+                            <?php } /*1*/   else /*2*/ { ?>
 
-                          <input type="radio"name="gen" id="gen" value="male" checked>
-                        <?php
-                        } else {
-                        ?>
-
-                        <input type="radio"name="gen" id="gen" value="male">
-                        <?php } 
-                        ?>male
-                        <?php if($f['gender']=='female'){
-                        ?>
-                          <input type="radio"name="gen" id="gen" value="female" checked>
-                        <?php
-                        } else {
-                        ?>
-
-                        <input type="radio"name="gen" id="gen" value="female">
-                        <?php } ?>
-                        female
-                        </div>
+                              <input type="radio"name="gen" id="radioPrimary1" value="male">
+                            <?php } /*2*/ ?> 
+                              <label for="radioPrimary1">
+                                Masculino 
+                                <span class="invisivel">aa</span>
+                            </label>
+                          </div>
+                          <div class="icheck-primary d-inline">
+                            <?php if($f['gender']=='female'){ ?>
+                              <input type="radio"name="gen" id="radioPrimary2" value="female" checked>
+                            <?php } else {?>
+                              <input type="radio"name="gen" id="radioPrimary" value="female">
+                            <?php } ?>
+                              <label for="radioPrimary2">
+                                Fenimino
+                              </label>
+                          </div>    
                       </div>
                       <div class="form-group row">
                         <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
@@ -198,40 +158,7 @@ if(isset($_POST['sub'])){
 
                   <!-- TIMELINE abaixo -->
 
-                  <div class="tab-pane" id="timeline">
-                  <form class="form-horizontal" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
-                        <div class="col-sm-10">
-                        <input type="text" name="text" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
-                        <input type="text" name="user" class="form-control">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                          <input type="password" name="pass">
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
-                        <input type="radio"name="gen" id="gen" value="male">male
-                        <input type="radio" name="gen" id="gen" value="female">female
-                      
-                        <div class="form-group row">
-                          <div class="offset-sm-2 col-sm-10">
-                            <input type="submit" class="btn btn-danger" value="Concluir" name="sub">
-                            <!-- <button type="submit" class="btn btn-danger">Submit</button> -->
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
+                  
 
                 </div>
               </div><!-- /.card-body -->
@@ -267,7 +194,5 @@ if(isset($_POST['sub'])){
 <script src="./AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="./AdminLTE-3.2.0/addist/js/demo.js"></script>
 </body>
 </html>
