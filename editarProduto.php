@@ -173,6 +173,10 @@ $quantidade = $_GET['quantidade'];
 </html>
 
 <?php
+  $usuario = "select * from reg where id='$_SESSION[id]'";  
+  $query = mysqli_query($con, $usuario);
+  $ct=mysqli_fetch_assoc($query);
+  
       if (isset($_POST['edit'])) {
           $novoProduto = $_POST['newName'];
           $novoPreço = $_POST['newPrice'];
@@ -182,5 +186,40 @@ $quantidade = $_GET['quantidade'];
           mysqli_query($con, $b);
           // header('location: produto.php');
           echo "<script>location.href='produto.php'</script>";
+
+          function logMsg($id, $nameProduto,$novoProduto, $cota) {
+            $level = 'info'; 
+            $file = './log/main.log';
+            // ct --> coluna da tabela
+            $msg = ''. $cota['name']. ', Alterou informacao(s) do: ' .$nameProduto .' dos produtos. ID: ' .$id;
+            // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
+            $levelStr = '';
+        
+            // verifica o nível do log
+            switch ($level) {
+                case 'info':
+                    // nível de informação
+                    $levelStr = 'INFO';
+                    break;
+        
+                case 'warning':
+                    // nível de aviso
+                    $levelStr = 'WARNING';
+                    break;
+        
+                case 'error':
+                    // nível de erro
+                    $levelStr = 'ERROR';
+                    break;
+            }
+        
+            date_default_timezone_set('America/Sao_Paulo');
+            $date = date('Y-m-d H:i:s');
+        
+            $msg = sprintf( "[%s] [%s]: %s%s", $date, $levelStr, $msg, PHP_EOL );
+        
+            file_put_contents($file, $msg, FILE_APPEND);
+        }
+          logMsg($id, $nomeProduto,$newProduct, $ct);
         }
 ?>

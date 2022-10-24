@@ -124,7 +124,7 @@
                               </i>
                               Edit
                           </a>
-                          <a class="btn btn-danger btn-sm" href="./product/delete_product.php?id=<?php echo $f['idProduto'];?>">
+                          <a class="btn btn-danger btn-sm" href="./product/delete_product.php?id=<?php echo $f['idProduto'];?>&nomeProduto=<?php echo $f['nomeProduto']?>">
                               <i class="fas fa-trash">
                               </i>
                               Delete

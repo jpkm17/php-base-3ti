@@ -176,6 +176,11 @@ include 'checkLogin.php';
 </body>
 </html>
 <?php
+  $usuario = "select * from reg where id='$_SESSION[id]'";
+      
+  $query = mysqli_query($con, $usuario);
+  $ct=mysqli_fetch_assoc($query);
+
   if (isset($_POST['add'])) {
     $nomeProduto = $_POST['nomeProduto'];
     $preçoProduto = $_POST['preçoProduto'];
@@ -184,5 +189,40 @@ include 'checkLogin.php';
     $k= "insert into produto set nomeProduto ='$nomeProduto', preçoProduto='$preçoProduto', fk_idGenero='$idGenero', quantidade='$quantidade'";
     mysqli_query($con, $k);
     echo "<script>location.href='produto.php'</script>";
+    
+    function logMsg($nameProduto, $cota) {
+      $level = 'info'; 
+      $file = './log/main.log';
+      // ct --> coluna da tabela
+      $msg = ''. $cota['name']. ', Adicionou: ' .$nameProduto .', nos produtos.' ;
+      // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
+      $levelStr = '';
+  
+      // verifica o nível do log
+      switch ($level) {
+          case 'info':
+              // nível de informação
+              $levelStr = 'INFO';
+              break;
+  
+          case 'warning':
+              // nível de aviso
+              $levelStr = 'WARNING';
+              break;
+  
+          case 'error':
+              // nível de erro
+              $levelStr = 'ERROR';
+              break;
+      }
+  
+      date_default_timezone_set('America/Sao_Paulo');
+      $date = date('Y-m-d H:i:s');
+  
+      $msg = sprintf( "[%s] [%s]: %s%s", $date, $levelStr, $msg, PHP_EOL );
+  
+      file_put_contents($file, $msg, FILE_APPEND);
+  }
+    logMsg($nomeProduto, $ct);
   }
 ?>
