@@ -35,7 +35,7 @@ CREATE TABLE `reg` (
   `city` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `fk_profile` int
   -- foreign KEY reg(fk_profile) references profile_reg(idProfile)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
