@@ -67,8 +67,8 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 1%">
-                          #
+                      <th style="width: 10%">
+                          Imagem
                       </th>
                       <th style="width: 20%">
                           Nome Produto
@@ -95,7 +95,7 @@
               <tbody>
                   <tr>
                       <td>
-                          #
+                          <img width="80px" height="120px" src="<?php echo $f['img']; ?>">
                       </td>
                       <td>
 
