@@ -35,9 +35,9 @@ CREATE TABLE `reg` (
   `city` varchar(15) NOT NULL,
   `image` varchar(50) NOT NULL,
   `gender` varchar(10) NOT NULL,
-  `id` int(11) NOT NULL
-  `fk_adm` int,
-  foreign KEY (fk_adm) references adm(id_Adm)
+  `id` int(11) NOT NULL,
+  `fk_profile` int
+  -- foreign KEY reg(fk_profile) references profile_reg(idProfile)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `reg` (
 --
 
 INSERT INTO `reg` (`name`, `username`, `password`, `city`, `image`, `gender`, `id`) VALUES
-('Bikash', 'bikash', 'bikash', 'lko', 'image/images.png', 'male', 2);
+('Bikash', 'bikash', 'bikash', 'lko', 'image/images.png', 'male', 1);
 
 --
 -- Índices para tabelas despejadas

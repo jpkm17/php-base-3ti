@@ -1,7 +1,6 @@
 <?php
 
 include 'connect.php';
-
 $Error_message = '';
 if(isset($_POST['sub'])){
   $u=$_POST['Email'];
