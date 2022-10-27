@@ -38,21 +38,11 @@ if(isset($_POST['sub'])){
           
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['username'];?></a>
+          <a href="#" class="d-block"><?php echo $f['name'];?></a>
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
+     
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -61,7 +51,7 @@ if(isset($_POST['sub'])){
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Users
+                Usuarios
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -78,7 +68,7 @@ if(isset($_POST['sub'])){
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Produto
+                Produtos
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -88,9 +78,9 @@ if(isset($_POST['sub'])){
                   <i class="far fa-circle nav-icon"></i>
                   <p>Produto</p>
                 </a>
-                <a href="./adicionarProduto.php" class="nav-link">
+                <a href="adicionarProduto.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Add Produto</p>
+                  <p>Adicionar Produto</p>
                 </a>
               </li>
             </ul>
@@ -107,7 +97,7 @@ if(isset($_POST['sub'])){
               <li class="nav-item">
                 <a href="./log/main.log" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Registro</p>
+                  <p>Registros</p>
                 </a>
               </li>
             </ul>

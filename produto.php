@@ -166,7 +166,5 @@
 <script src="./AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="./AdminLTE-3.2.0/dist/js/demo.js"></script>
 </body>
 </html>

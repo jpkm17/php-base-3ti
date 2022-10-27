@@ -52,27 +52,13 @@ include 'checkLogin.php';
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-3">
-
-            <!-- Profile Image -->
-            <div class="card card-primary card-outline">
-              <div class="card-body box-profile">
-                <div class="text-center">
-                <!-- <img src="<?php //echo $f['image']?>" width="100px" height="100px"> -->
-                </div>
-
-                <h3 class="profile-username text-center"><?php echo $f['name']?></h3>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-10">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#add" data-toggle="tab">Add Product</a></li>
+                  <li class="nav-item"><a class="nav-link active" href="#add" data-toggle="tab">Adicionar produto</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -87,7 +73,7 @@ include 'checkLogin.php';
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Preço</label>
                         <div class="col-sm-10">
-                        <input type="number" name="preçoProduto" class="form-control">
+                        <input type="text" name="preçoProduto" class="form-control">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -102,16 +88,7 @@ include 'checkLogin.php';
                         </label>
                         <div class="col-sm-10">
                           <select name="genero">
-                              <?php
-                                // $sqlProduto = mysqli_query($con, "select * from genero");
-
-                                // while ($item = mysqli_fetch_assoc($sqlProduto)) {
-                                //     $nomeItem = $item['nomeGenero'];
-                                //     $idGenero = $item['idGenero'];
-                                //     echo "<option value=$idGenero>$nomeItem</option>";
-                                // }
-
-                             
+                              <?php 
                                 echo '<option value="" disable> --Selecione --</option>';
         
                                 $sqlGenero = mysqli_query($con, "select * from genero");
@@ -166,11 +143,11 @@ include 'checkLogin.php';
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<!-- <script src="./AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script> -->
+<script src="./AdminLTE-3.2.0/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<!-- <script src="./AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+<script src="./AdminLTE-3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
-<!-- <script src="./AdminLTE-3.2.0/dist/js/adminlte.min.js"></script> -->
+<script src="./AdminLTE-3.2.0/dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <!-- <script src="./AdminLTE-3.2.0/addist/js/demo.js"></script> -->
 </body>

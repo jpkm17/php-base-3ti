@@ -5,13 +5,20 @@ include 'connect.php';
       $u=$_POST['user'];
       $p=$_POST['pass'];
       $g=$_POST['gen'];
-      $i="insert into reg(name,username,password,gender)value('$t','$u','$p','$g')";
-      mysqli_query($con, $i);
+      $i="insert into reg(name,username,password,gender)values('$t','$u','$p','$g')";
+      $qu=mysqli_query($con, $i);
+      if(mysqli_num_rows($qu)>0){
+        $f= mysqli_fetch_assoc($qu);
+        $_SESSION['id']=$f['id'];
+        header ('location:home.php');
+      }
+      else{
+        $Error_message = 'Preencha os campos';
+      }
 
     $s="select*from reg where id='$_SESSION[id]'";
     $qu= mysqli_query($con, $s);
     $f=mysqli_fetch_assoc($qu);
-
   }
 ?> 
 <!DOCTYPE html>
@@ -19,7 +26,7 @@ include 'connect.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Registration Page (v2)</title>
+  <title>Registro</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
