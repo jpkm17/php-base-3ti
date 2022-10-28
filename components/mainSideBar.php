@@ -63,6 +63,14 @@ if(isset($_POST['sub'])){
                 </a>
               </li>
             </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="relatorio/adm.php" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Lista de usuários</p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
