@@ -15,45 +15,8 @@ if(isset($_POST['sub'])){
     else{
       $Error_message = 'Username or password does not exist';
     }
-
 }
 ?>
-<!-- <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-        <link rel="stylesheet" href="css/commun.css">
-    </head>
-    <body>
-        <div class="container-login">
-            
-            <h1>Login</h1>
-            <form method="POST" enctype="multipart/form-data">
-
-                <div class="dados-container">
-                    <label>Username</label> 
-                    <br>
-                    <input type="text" name="user" class="username">
-                    <br>
-                    <br>
-                    <label>Password</label> 
-                    <br>
-                    <input type="password" name="pass" class="password">
-                            
-                    <br>
-                    <br>
-                    <input type="submit" name="sub" value="submit" class="submit">
-
-                    <p>
-                        <?//php echo $Error_message ?>
-                    </p>
-                </div>            
-            </form>
-
-        </div>
-    </body>
-</html> -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,7 +24,7 @@ if(isset($_POST['sub'])){
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login</title>
-
+  <?php include './components/iconGanes.php'; ?>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->

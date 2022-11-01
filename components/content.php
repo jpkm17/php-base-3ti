@@ -40,7 +40,7 @@
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./produto.php" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -66,7 +66,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="#" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./relatorio/adm.php" class="small-box-footer">Lista de Usuários <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
         </div>

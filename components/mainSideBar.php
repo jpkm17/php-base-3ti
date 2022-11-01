@@ -74,7 +74,7 @@ if(isset($_POST['sub'])){
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Produtos
                 <i class="right fas fa-angle-left"></i>

@@ -30,7 +30,8 @@ if(isset($_POST['sub'])){
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | User Profile</title>
+  <title>Perfil</title>
+  <?php include './components/iconGanes.php'; ?>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -66,12 +67,6 @@ if(isset($_POST['sub'])){
           <div class="col-sm-6">
             <h1>Profile</h1>
           </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><a href="./relatorio/adm.php">Gerar pdf dos usuarios</a></li>
-            </ol>
-          </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
@@ -84,11 +79,11 @@ if(isset($_POST['sub'])){
 
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-10">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Informações</a></li>
+                  <li class="nav-item"><a class="nav-link active btn-danger" href="#settings" data-toggle="tab">Informações</a></li>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -96,13 +91,13 @@ if(isset($_POST['sub'])){
                   <div class="tab-pane active" id="settings"> 
                     <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
                         <div class="col-sm-10">
                         <input type="text" name="text" class="form-control" value="<?php echo $f['name']?>">
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputName" class="col-sm-2 col-form-label">Username</label>
+                        <label for="inputName" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
                         <input type="text" name="user" class="form-control" value="<?php echo $f['username']?>">
                         </div>
@@ -114,7 +109,7 @@ if(isset($_POST['sub'])){
                         </div>
                       </div>
                       <div class="form-group row">
-                        <label for="inputExperience" class="col-sm-2 col-form-label">Gender</label>
+                        <label for="inputExperience" class="col-sm-2 col-form-label">Genero</label>
                           <div class="icheck-primary d-inline">
                             <?php if($f['gender']=='male') /*1*/{  ?>
                               <input type="radio"name="gen" id="radioPrimary1" value="male" checked>
@@ -134,12 +129,12 @@ if(isset($_POST['sub'])){
                               <input type="radio"name="gen" id="radioPrimary2" value="female">
                             <?php } ?>
                               <label for="radioPrimary2">
-                                Fenimino
+                                Feminino
                               </label>
                           </div>    
                       </div>
                       <div class="form-group row">
-                        <label for="inputSkills" class="col-sm-2 col-form-label">Image</label>
+                        <label for="inputSkills" class="col-sm-2 col-form-label">Imagem</label>
                         <div class="col-sm-10">
                           <img src="<?php echo $f['image']?>" width="100px" height="100px">
                           <input type="hidden" name="img1" value="<?php echo $f['image']?>">
