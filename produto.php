@@ -7,8 +7,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Projects</title>
-
+  <title>Produtos cadastrados</title>
+  <?php include './components/iconGanes.php'; ?>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -119,10 +119,10 @@
 
                       
                       <td class="project-actions text-right">
-                          <a class="btn btn-info btn-sm" href="editarProduto.php?id=<?php echo $f['idProduto']?>&nomeProduto=<?php echo $f['nomeProduto']?>&preço=<?php echo $f ['preçoProduto']?>&genero= <?php echo $f ['nomeGenero'] ?>&quantidade=<?php echo $f['quantidade']?>">
+                          <a class="btn btn-info btn-sm" href="editarProduto.php?id=<?php echo $f['idProduto']?>&nomeProduto=<?php echo $f['nomeProduto']?>&preço=<?php echo $f ['preçoProduto']?>&genero= <?php echo $f ['nomeGenero'] ?>&quantidade=<?php echo $f['quantidade']?>&img=<?php echo $f['img']?>">
                               <i class="fas fa-pencil-alt">
                               </i>
-                              Edit
+                              Editar
                           </a>
                           <a class="btn btn-danger btn-sm" href="./product/delete_product.php?id=<?php echo $f['idProduto'];?>&nomeProduto=<?php echo $f['nomeProduto']?>">
                               <i class="fas fa-trash">
@@ -145,12 +145,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
+  
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
