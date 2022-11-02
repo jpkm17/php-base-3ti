@@ -22,12 +22,12 @@ if(isset($_POST['sub'])){
 ?> 
   
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar bg-black sidebar-dark-primary elevation-4 ">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <div href="#" class="brand-link">
       <img src="./image/logoganes.png" alt="Ganes Logo" class="brand-image" style="opacity: .8">
-      <span class="helveltica">Ganes</span>
-    </a>
+      <span class="helveltica"> Ganes</span>
+    </div>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -46,7 +46,7 @@ if(isset($_POST['sub'])){
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
@@ -59,7 +59,7 @@ if(isset($_POST['sub'])){
               <li class="nav-item">
                 <a href="profile.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Editar Informações</p>
+                  <p>Editar Usuários</p>
                 </a>
               </li>
             </ul>

@@ -23,8 +23,8 @@
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
+            <div class="small-box bg-warning bg-red">
+              <div class="inner ">
                 <h3>
                   <?php
 
@@ -38,17 +38,17 @@
                 <p>Produtos Cadastrados</p>
               </div>
               <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="ion text-white ion-bag"></i>
               </div>
-              <a href="./produto.php" class="small-box-footer">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./produto.php" class="  small-box-footer bg-black">Mais informações <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
           <!-- ./col -->
           <div class="col-lg-3 col-6">
             <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
+            <div class="small-box bg-warning bg-dark">
+              <div class="inner ">
                 <h3>
                 <?php
                   // $queryone="SELECT COUNT(id) as total FROM reg";
@@ -64,9 +64,10 @@
                 <p>Usuarios cadastrados</p>
               </div>
               <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="ion text-white ion-person-add"></i>
               </div>
-              <a href="./relatorio/adm.php" class="small-box-footer">Lista de Usuários <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="./relatorio/adm.php" class="small-box-footer bg-gray">Lista de Usuários <i class="fas fa-arrow-circle-right"></i></a>
+            
             </div>
           </div>
         </div>

@@ -27,10 +27,13 @@
   <link rel="stylesheet" href="AdminLTE-3.2.0/plugins/summernote/summernote-bs4.min.css">
 
   <style> 
-    span.helvelticaa {
+    span.helveltica {
       font-family:Helvetica, Arial, sans-serif;
+      color: #FFF;
+      font-weight: bold;
+      cursor: default;
     }
   </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
-<div class="wrapper">
+<div class="wrapper ">

@@ -8,17 +8,6 @@ $preço = $_GET['preço'];
 $nomeGenero = $_GET['genero'];
 $quantidade = $_GET['quantidade'];
 $imagem = $_GET['img'];
-
-
-// if($_FILES['f1']['name']){
-//   move_uploaded_file($_FILES['f1']['tmp_name'], "image/".$_FILES['f1']['name']);
-//   $img="image/".$_FILES['f1']['name'];
-//   }
-//   else{
-//       $img=$_POST['img1'];
-//   }
-
-// 
 ?>
 
 <!DOCTYPE html>
@@ -32,21 +21,29 @@ $imagem = $_GET['img'];
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="./AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="./AdminLTE-3.2.0/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="AdminLTE-3.2.0/dist/css/adminlte.min.css">
+  <style> 
+    span.helveltica {
+      font-family:Helvetica, Arial, sans-serif;
+      color: #FFF;
+      font-weight: bold;
+      cursor: default;
+    }
+  </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
 
     <!-- Navbar -->
-    <?php include './components/nav.php' ?>
+    <?php include 'components/nav.php' ?>
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
 
-    <?php include './components/mainSideBar.php' ?>
+    <?php include 'components/mainSideBar.php' ?>
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -55,36 +52,20 @@ $imagem = $_GET['img'];
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-3">
-
-              <!-- Profile Image -->
-              <div class="card card-primary card-outline">
-                <div class="card-body box-profile">
-                  <div class="text-center">
-                    <!-- <img src="<?php //echo $f['image']
-                                    ?>" width="100px" height="100px"> -->
-                  </div>
-
-                  <h3 class="profile-username text-center"><?php echo $f['name'] ?></h3>
-                </div>
-                <!-- /.card-body -->
-              </div>
-              <!-- /.card -->
-
             </div>
             <!-- /.col -->
-            <div class="col-md-9">
+            <div class="col-md-10">
               <div class="card">
                 <div class="card-header p-2">
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="#settings" data-toggle="tab">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link active btn-danger" href="#settings" data-toggle="tab">Editar</a></li>
 
                   </ul>
                   <!-- /.card-header -->
                 </div>
-
                 <div class="card-body">
                   <div class="tab-pane active" id="settings">
-                    <form class="form-horizontal" method="POST">
+                    <form class="form-horizontal" method="POST" enctype="multipart/form-data">
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">Produto</label>
                         <div class="col-sm-10">
@@ -101,7 +82,7 @@ $imagem = $_GET['img'];
                         <label for="inputEmail" class="col-sm-2 col-form-label">Quantidade
                         </label>
                         <div class="col-sm-10">
-                          <input type="number" name="newQuant" value="<?php echo $quantidade ?>">
+                          <input type="number" class="form-control" name="newQuant" value="<?php echo $quantidade ?>">
                         </div>
                       </div>
                       <div class="form-group row">
@@ -120,12 +101,14 @@ $imagem = $_GET['img'];
                             ?>
                           </select>
                         </div>
-                        <div class="col-sm-10">
-                          <img width="80px" height="120px" src="<?php echo $imagem; ?>">
-
-                          <br>
-                          <input type="file" name="f1">
+                        <div class="form-group row">
+                          <div class="col-sm-10">
+                            <label for="inputSkills" class="col-sm-7 col-form-label">Imagem</label>
+                            <img src="<?php echo $imagem?>" width="75px" height="105px">
+                            
+                            <input type="file" name="f1">
                         </div>
+                      </div>
                       </div>
                   </div>
                   <div class="form-group row">
@@ -189,40 +172,15 @@ if (isset($_POST['edit'])) {
 
   $b = "update produto set nomeProduto = '$novoProduto', preçoProduto='$novoPreço', fk_idGenero='$novoGenero', quantidade='$novaQuantidade', img='$img' where idProduto='$id'";
   mysqli_query($con, $b);
-  // echo "<script>location.href='produto.php'</script>";
+  echo "<script>location.href='produto.php'</script>";
 
-  
-  
-  
-  
-  
-  
   function logMsg($id, $nameProduto, $novoProduto, $cota)
   {
-    $level = 'info';
     $file = './log/main.log';
     // ct --> coluna da tabela
     $msg = '' . $cota['name'] . ', Alterou informacao(s) do: ' . $nameProduto . ' dos produtos. ID: ' . $id;
     // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
-    $levelStr = '';
-
-    // verifica o nível do log
-    switch ($level) {
-      case 'info':
-        // nível de informação
-        $levelStr = 'INFO';
-        break;
-
-      case 'warning':
-        // nível de aviso
-        $levelStr = 'WARNING';
-        break;
-
-      case 'error':
-        // nível de erro
-        $levelStr = 'ERROR';
-        break;
-    }
+    $levelStr = 'info';
 
     date_default_timezone_set('America/Sao_Paulo');
     $date = date('Y-m-d H:i:s');

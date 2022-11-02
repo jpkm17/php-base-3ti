@@ -47,6 +47,12 @@ if(isset($_POST['sub'])){
       opacity:0;
       cursor:default;
     }
+    span.helveltica {
+      font-family:Helvetica, Arial, sans-serif;
+      color: #FFF;
+      font-weight: bold;
+      cursor: default;
+    }
   </style>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -65,7 +71,7 @@ if(isset($_POST['sub'])){
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
+            <h1>Usuário</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -169,12 +175,6 @@ if(isset($_POST['sub'])){
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
