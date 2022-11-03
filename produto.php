@@ -63,20 +63,20 @@
           <table class="table table-striped projects">
               <thead>
                   <tr>
-                      <th style="width: 10%">
+                      <th style="width: 13%">
                           Imagem
                       </th>
-                      <th style="width: 20%">
+                      <th style="width: 20%" >
                           Nome Produto
                       </th>
-                      <th style="width: 10%">
+                      <th style="width: 15%">
                           Preço
                       </th>
         
-                      <th style="width: 15%" class="text-center">
-                          Genero
+                      <th style="width: 15%" >
+                          Gênero
                       </th>
-                      <th style="width: 20%" class="text-center">
+                      <th style="width: 10%">
                         Estoque
                       </th>
                       <th style="width: 7%">
@@ -97,10 +97,7 @@
                           <img width="80px" height="120px" src="<?php echo $f['img']; ?>">
                       </td>
                       <td>
-
                           <?php echo $f['nomeProduto'];?>
-    
-                          <br/>
                       </td>
                       <td>
                           <ul class="list-inline">
@@ -108,11 +105,11 @@
                           </ul>
                       </td>
                       <!-- GEnero -->
-                      <td class="project-state">   
-                        <?php echo $f['nomeGenero']; ?>
+                      <td>
+                          <?php echo $f['nomeGenero']; ?>
                       </td>
                       <!-- Estoque -->
-                      <td class="project-state">
+                      <td>
                         <?php echo $f['quantidade']; ?> 
                       </td>
 

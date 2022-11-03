@@ -118,7 +118,7 @@ if(isset($_POST['sub'])){
                         <label for="inputExperience" class="col-sm-2 col-form-label">Genero</label>
                           <div class="icheck-primary d-inline">
                             <?php if($f['gender']=='male') /*1*/{  ?>
-                              <input type="radio"name="gen" id="radioPrimary1" value="male" checked>
+                              <input type="radio"name="gen" id="radioPrimary1"value="male" checked>
                             <?php } /*1*/   else /*2*/ { ?>
 
                               <input type="radio"name="gen" id="radioPrimary1" value="male">

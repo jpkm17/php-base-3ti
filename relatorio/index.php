@@ -4,7 +4,7 @@ require_once 'vendor/autoload.php';
 //referenciando o namespace
 use Dompdf\Dompdf;
 
-include '../../connect.php';
+include '../connect.php';
 
 $sql = $con->query('select * from produto as p inner join genero as g on g.idGenero = p.fk_idGenero;');
 $html = '<table border=1>';

@@ -80,8 +80,8 @@ include 'checkLogin.php';
                       <div class="form-group row">
                         <label for="inputEmail" class="col-sm-2 col-form-label">Genero
                         </label>
-                        <div class="col-sm-10">
-                          <select name="genero">
+                        <div class="col-sm-2">
+                          <select  class="form-control" name="genero">
                             <?php
                             echo '<option value="" disable> --Selecione --</option>';
 
@@ -172,7 +172,7 @@ if (isset($_POST['add'])) {
     // ct --> coluna da tabela
     $msg = '' . $cota['name'] . ', Adicionou: ' . $nameProduto . ', nos produtos.';
     // variável que vai armazenar o nível do log (INFO, WARNING ou ERROR)
-    $levelStr = 'info';
+    $levelStr = 'INFO';
 
     date_default_timezone_set('America/Sao_Paulo');
     $date = date('Y-m-d H:i:s');

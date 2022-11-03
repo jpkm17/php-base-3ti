@@ -5,11 +5,14 @@ $Error_message = '';
 if(isset($_POST['sub'])){
   $u=$_POST['Email'];
   $p=$_POST['Password'];
-  $s= "select * from reg where username='$u' and password= '$p'";   
+  $s = "select * from reg as r 
+  INNER join profile_reg as p on p.idProfile = r.fk_profile 
+  where username='$u' and password= '$p' ";
   $qu= mysqli_query($con, $s);
    if(mysqli_num_rows($qu)>0){
       $f= mysqli_fetch_assoc($qu);
       $_SESSION['id']=$f['id'];
+      $_SESSION['profile']=$f['nameProfile'];
       header ('location:home.php');
     }
     else{
@@ -37,9 +40,9 @@ if(isset($_POST['sub'])){
 <body class="hold-transition login-page">
 <div class="login-box">
   <!-- /.login-logo -->
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-secondary">
     <div class="card-header text-center">
-      <a href="../../index2.html" class="h1">Ganes</a>
+      <h1 class="h1">Ganes</h1>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Faça o login para começar</p>
@@ -73,7 +76,7 @@ if(isset($_POST['sub'])){
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" name="sub" class="btn btn-primary btn-block">Entrar</button>
+            <button type="submit" name="sub" class="btn btn-danger btn-primary btn-block">Entrar</button>
           </div>
           <!-- /.col -->
         </div>
@@ -82,7 +85,7 @@ if(isset($_POST['sub'])){
    
 
       <p class="mb-1">
-        <a href="forgot-password.html">E squeci minha senha</a>
+        <a href="forgot-password.html">Esqueci minha senha</a>
       </p>
       <p class="mb-0">
         <a href="register.php" class="text-center">Criar uma conta</a>

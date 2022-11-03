@@ -47,7 +47,7 @@ if(isset($_POST['sub'])){
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
+          <li class="nav-item menu-is-opening menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
@@ -58,21 +58,21 @@ if(isset($_POST['sub'])){
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="profile.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editar Usuários</p>
+                  <i class="far fa-circle nav-icon text-danger"></i>
+                  <p>Editar informações</p>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="relatorio/adm.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Lista de usuários</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item menu-is-opening menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
@@ -83,33 +83,42 @@ if(isset($_POST['sub'])){
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="./produto.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Produto</p>
                 </a>
                 <a href="adicionarProduto.php" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="far fa-circle nav-icon text-danger"></i>
                   <p>Adicionar Produto</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-edit"></i>
-              <p>
-                Registro de autitoria
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="./log/main.log" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Registros</p>
-                </a>
-              </li>
-            </ul>
-          </li>
+          <?php 
+            if($_SESSION['profile']!='Admin'){ 
+              echo "";
+            } 
+            else {
+              echo '
+                <li class="nav-item menu-is-opening menu-open">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>
+                      Registro de autitoria
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="./log/log.php" class="nav-link">
+                        <i class="far fa-circle nav-icon text-danger"></i>
+                        <p>Registros</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>'; 
+            }    
+          ?>
+         
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
