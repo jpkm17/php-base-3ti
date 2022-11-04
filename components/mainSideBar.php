@@ -38,7 +38,7 @@ if(isset($_POST['sub'])){
           
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo $f['name'];?></a>
+          <a href="./profile.php" class="d-block"><?php echo $f['name'];?></a>
         </div>
       </div>
 
@@ -51,23 +51,19 @@ if(isset($_POST['sub'])){
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                Usuarios
+                Usuários
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="profile.php" class="nav-link">
+                <a href="usuarios.php" class="nav-link">
                   <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Editar informações</p>
+                  <p>Usuários</p>
                 </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="relatorio/adm.php" class="nav-link">
+                <a href="adicionarUsuario.php" class="nav-link">
                   <i class="far fa-circle nav-icon text-danger"></i>
-                  <p>Lista de usuários</p>
+                  <p>Adicionar Usuário</p>
                 </a>
               </li>
             </ul>
@@ -109,7 +105,7 @@ if(isset($_POST['sub'])){
                   </a>
                   <ul class="nav nav-treeview">
                     <li class="nav-item">
-                      <a href="./log/log.php" class="nav-link">
+                      <a href="./log/main.log" class="nav-link">
                         <i class="far fa-circle nav-icon text-danger"></i>
                         <p>Registros</p>
                       </a>
